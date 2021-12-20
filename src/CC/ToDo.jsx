@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../../src/App.css";
-import Header from "./Header";
 
 class ToDo extends Component {
   constructor(props) {
@@ -102,19 +101,19 @@ class ToDo extends Component {
 
   render() {
     let taskList = this.state.taskList;
+    const completedTasks = taskList.filter((task) => task.isChecked);
     return (
       <div>
         <h4>ToDo Class-Component</h4>
 
-        <Header taskList={taskList} />
-        {/* <div className="header">
+        <div className="header">
           <h4>Summary</h4>
           <div className="count">
-            <span>Total: {this.state.total}</span>
-            <span>Completed: {this.state.completed}</span>
-            <span>Remaining: {this.state.total - this.state.completed}</span>
+            <span>Total: {taskList.length}</span>
+            <span>Completed: {completedTasks.length}</span>
+            <span>Remaining: {taskList.length - completedTasks.length}</span>
           </div>
-        </div> */}
+        </div>
 
         {/* Input section */}
         <div className="task_input">
